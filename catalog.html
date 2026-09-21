@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog — Applause Design Studio</title>
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            list-style: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+            background: #FFFFFF;
+            color: #14121F;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark {
+            background: #0A0812;
+            color: #FFFFFF;
+        }
+
+        
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #00ff00;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            box-shadow: 0 0 10px #951fd0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 0px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            height: 106px;
+            padding: 0 24px;
+            background: #951fd0;
+        }
+
+        .header__logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .menu-list {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .menu-list a {
+            color: white;
+        }
+
+        .header__controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle,
+        .burger {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .theme-toggle:hover,
+        .burger:hover {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .burger {
+            display: none;
+        }
+
+        /* Catalog */
+
+        .catalog-section {
+            padding: 64px 0 50px;
+        }
+
+        .catalog-section h1 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .catalog-section__lead {
+            text-align: center;
+            font-size: 18px;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+
+        /* Categories */
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+
+        .category-btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: #FFFFFF;
+            color: #14121F;
+            border: 1px solid #E2E2EC;
+            font-weight: 700;
+            font-size: 15px;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        body.dark .category-btn {
+            background: #16121F;
+            color: #F5F3FA;
+            border-color: #2A2340;
+        }
+
+        .category-btn:hover,
+        .category-btn.is-active,
+        body.dark .category-btn:hover,
+        body.dark .category-btn.is-active {
+            background: #951fd0;
+            color: white;
+            border-color: #951fd0;
+            box-shadow: 0 0 10px #951fd0;
+        }
+
+        /* Cards grid */
+
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            background: #FFFFFF;
+            border: 1px solid #E2E2EC;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        body.dark .card {
+            background: #16121F;
+            border-color: #000000;
+        }
+
+        .card:hover {
+            box-shadow: 0 0 10px #951fd0;
+        }
+
+        .card__image {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            background: yellow;
+            padding: 32px;
+        }
+
+        .card-green { background-color: #00ff00}
+        .card-violet { background-color: #951fd0}
+        .card-yellow { background-color: #EEFF00}
+
+        .card__body {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .card__title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .card__meta {
+            font-size: 13px;
+            font-weight: 700;
+            color: #951fd0;
+            margin-top: 8px;
+        }
+
+        body.dark .card__meta {
+            color: #9B4DFF;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 50px;
+            background: #951fd0;
+            color: white;
+            font-weight: 700;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #48039A;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .catalog__more {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        /* Footer */
+
+        .footer {
+            background: #951fd0;
+            color: white;
+            padding: 64px 24px;
+        }
+
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .footer ul {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer ul li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer ul li img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .footer__logo img {
+            height: 100px;
+            width: auto;
+        }
+
+        .footer__socials {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .footer__socials a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .footer__socials a:hover {
+            background: #EEFF00;
+            transform: translateY(-2px);
+        }
+
+        .footer__socials img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        /* Adaptive */
+        @media (max-width: 1024px) {
+            .catalog { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .menu-list { display: none; }
+            .burger { display: flex; }
+
+            .catalog-section h1 { font-size: 32px; }
+            .catalog { grid-template-columns: repeat(2, 1fr); }
+            .card {margin: 0 24px;}
+            .footer { padding: 48px 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .catalog-section h1 { font-size: 26px; }
+            .catalog { grid-template-columns: 1fr; }
+            .card {margin: 0 24px;}
+            .card__image { height: 140px; }
+        }
+    </style>
+</head>
+
+<body>
+
+   <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="header__logo">
+            <img src="images/Logo white.svg" alt="Applause logo">
+        </a>
+
+        <nav aria-label="Main navigation">
+            <ul class="menu-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+            </ul>
+        </nav>
+
+        <div class="header__controls">
+            <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">🌙</button>
+            <button class="burger" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Catalog -->
+        <section class="catalog-section">
+            <div class="container">
+                <h1>Catalog</h1>
+                <p class="catalog-section__lead">
+                    Services, cases and packages – pick what fits your product.
+                </p>
+
+                <!-- Categories -->
+                <div class="categories">
+                    <button class="category-btn is-active">All</button>
+                    <button class="category-btn">Services</button>
+                    <button class="category-btn">Cases</button>
+                    <button class="category-btn">Packages</button>
+                </div>
+
+                <!-- Cards grid -->
+                <div class="catalog">
+                    <article class="card">
+                        <img class="card__image card-yellow" src="images/Search.svg" alt="UX Audit icon">
+                        <div class="card__body">
+                            <h3 class="card__title">UX Audit</h3>
+                            <p class="card__text">Find where users drop off and why.</p>
+                            <span class="card__meta">from $800 · 1 week</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image card-violet" src="images/Settings.svg" alt="UI Design icon">
+                        <div class="card__body">
+                            <h3 class="card__title">UI Design</h3>
+                            <p class="card__text">Interfaces that look and work.</p>
+                            <span class="card__meta">from $1200 · 2 weeks</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image card-green" src="images/Grid.svg" alt="Design System icon">
+                        <div class="card__body">
+                            <h3 class="card__title">Design System</h3>
+                            <p class="card__text">One system, all screens.</p>
+                            <span class="card__meta">from $2000 · 3 weeks</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image card-violet" src="images/Image.svg" alt="Landing Page icon">
+                        <div class="card__body">
+                            <h3 class="card__title">Landing Page</h3>
+                            <p class="card__text">A page that converts.</p>
+                            <span class="card__meta">from $900 · 1 week</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image card-green" src="images/Smartphone.svg" alt="Mobile App Design icon">
+                        <div class="card__body">
+                            <h3 class="card__title">Mobile App Design</h3>
+                            <p class="card__text">iOS & Android, done right.</p>
+                            <span class="card__meta">from $2500 · 4 weeks</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image card-violet" src="images/Bar chart.svg" alt="Dashboard UI icon">
+                        <div class="card__body">
+                            <h3 class="card__title">Dashboard / SaaS UI</h3>
+                            <p class="card__text">Complex data, clear screens.</p>
+                            <span class="card__meta">from $1800 · 3 weeks</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image card-yellow" src="images/Star.svg" alt="Branding icon">
+                        <div class="card__body">
+                            <h3 class="card__title">Branding</h3>
+                            <p class="card__text">Logo, identity, guidelines.</p>
+                            <span class="card__meta">from $1000 · 2 weeks</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card__image card-violet" src="images/Eye.svg" alt="Design Review icon">
+                        <div class="card__body">
+                            <h3 class="card__title">Design Review</h3>
+                            <p class="card__text">A fresh pair of eyes on your product.</p>
+                            <span class="card__meta">from $500 · 3 days</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+                <!-- Show more -->
+                    <div class="catalog__more">
+                        <button class="btn" type="button">Show more</button>
+                    </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__contacts">
+                <h2>Contact us</h2>
+                <ul>
+                    <li>
+                        <img src="images/Map pin.svg" alt="map icon">
+                        <a href="https://maps.google.com/?q=8558+Green+Rd+LA" target="_blank" rel="noopener">
+                            8558 Green Rd., LA
+                        </a>
+                    </li>
+                    <li>
+                        <img src="images/Phone.svg" alt="phone icon">
+                        <a href="tel:+16035550123">+1 (603) 555-0123</a>
+                    </li>
+                   <li>
+                        <img src="images/Mail.svg" alt="mail icon">
+                        <a href="mailto:applausestudio@gmail.com">applausestudio@gmail.com</a>
+                   </li>
+                </ul>
+            </div>
+
+            <div class="footer__logo">
+                <img src="images/Logo white.svg" alt="Applause logo">
+            </div>
+        </div>
+
+        <div class="footer__socials">
+            <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+                <img src="images/Github.svg" alt="github icon">
+            </a>
+            <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram">
+                <img src="images/Tg.svg" alt="tg icon">
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <img src="images/Linkedin.svg" alt="linkedin icon">
+        </div>
+
+    </footer>
+
+    <!-- Theme change script -->
+    <script>
+        const btn = document.getElementById('themeBtn');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+            btn.textContent = '☀️';
+        }
+
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+
+            if (document.body.classList.contains('dark')) {
+                btn.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+
+</body>
+</html>

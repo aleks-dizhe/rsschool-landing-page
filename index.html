@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applause Design Studio</title>
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            list-style: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+            background: #ffffff;
+            color: #14162b;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark {
+            background: #0d0f1a;
+            color: #f2f3fa;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #00ff00;
+        }
+
+        button {
+            padding: 18px 32px;
+            background: #951fd0;
+            box-shadow: 0 0 10px #951fd0;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            border: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #48039A;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            height: 106px;
+            padding: 0 24px;
+            background: #951fd0;
+        }
+
+        .header__logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .menu-list {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .menu-list a {
+            color: white;
+        }
+
+        .header__controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle,
+        .burger {
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: none;
+        }
+
+        .theme-toggle:hover,
+        .burger:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: none;
+        }
+
+        .burger {
+            display: none;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero #description {
+            flex: 1 1 0px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            line-height: 1.5;
+            margin-bottom: 32px;
+        }
+
+        .hero p span {
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .hero #one { background: #00ff00; color: #14162b; }
+        .hero #two { background: #951fd0; color: white; }
+        .hero #three { background: #EEFF00; color: #14162b; }
+
+        .hero #pic {
+            flex: 1 1 0px;
+            max-width: 440px;
+        }
+
+        /* About */
+        .section2 {
+            background: #951fd0;
+            color: white;
+            padding: 100px 24px;
+        }
+
+        .section2__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section2 h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+
+        .section2 p {
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 720px;
+            margin-bottom: 32px;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            padding: 18px 32px;
+            background: #EEFF00;
+            box-shadow: 0 0 10px #EEFF00;
+            color: #14121F;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .explore-btn:hover {
+            background: #D6E600;
+            color: #14121F;
+        }
+
+        /* Features*/
+        .section3 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
+        .section3 .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            width: 280px;
+            padding: 32px 24px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .section3 .box img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            background: #00ff00;
+            border-radius: 30px;
+            padding: 20px;
+        }
+
+        .section3 .box h3 {
+            font-size: 20px;
+        }
+
+        .section3 .box p {
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        /* Reviews */
+        .reviews-title {
+            font-size: 36px;
+            text-align: center;
+            padding: 0px 24px 32px;
+        }
+
+        .section4 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 0 24px 100px;
+        }
+
+        .slider-container {
+            flex: 1 1 600px;
+            max-width: 720px;
+            background: #951fd0;
+            border-radius: 50px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+            color: white;
+        }
+
+        .slider-container .avatar img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #EEFF00;
+        }
+
+        .slider-container .name {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .slider-container .review {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .arrow-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            background: #EEFF00;
+            box-shadow: 0 0 10px #EEFF00;
+            height: 50px;
+            width: 50px;
+            flex-shrink: 0;
+            transition: background 0.2s;
+            padding: 0; 
+        }
+
+        .arrow-container:hover {
+            background: #D6E600;
+        }
+
+        .arrow-container img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        /* Call to action */
+        .section5 {
+            padding: 100px 24px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section5 h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .section5 p {
+            font-size: 18px;
+            color: #4a4d68;
+            max-width: 560px;
+            margin: 0 auto 32px;
+        }
+
+        body.dark .section5 p {
+            color: #a8adc7;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 32px;
+            background: #951fd0;
+            color: white;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 0 10px rgba(90, 4, 188);
+        }
+
+        .btn:hover {
+            background: #48039A;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #951fd0;
+            color: white;
+            padding: 64px 24px;
+        }
+
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .footer ul {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer ul li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer ul li img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .footer__logo img {
+            height: 100px;
+            width: auto;
+        }
+
+         .footer__socials {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .footer__socials a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .footer__socials a:hover {
+            background: #EEFF00;
+            transform: translateY(-2px);
+        }
+
+        .footer__socials img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        /* Adaptive */
+        @media (max-width: 768px) {
+            .menu-list { display: none; }
+            .burger { display: flex; }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 32px;
+                padding: 48px 24px;
+            }
+
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 18px; }
+            .hero #pic { max-width: 320px; }
+
+            .section2 { padding: 64px 24px; }
+            .section2 h2 { font-size: 28px; }
+            .section2 p { font-size: 17px; }
+
+            .section3 { padding: 64px 24px; gap: 24px; }
+            .section3 .box { width: 100%; max-width: 320px; }
+
+            .reviews-title { font-size: 28px; padding: 48px 24px 24px; }
+
+            .section4 { padding: 0 24px 64px; }
+            .slider-container { padding: 32px 24px; }
+
+            .section5 { padding: 64px 24px; }
+            .section5 h2 { font-size: 28px; }
+
+            .footer { padding: 48px 24px; }
+            .footer__inner { flex-direction: column; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 26px; }
+            .hero p { font-size: 16px; }
+            .hero #pic { max-width: 240px; }
+            .hero span { line-height: 2; }
+
+            .section2 h2,
+            .reviews-title,
+            .section5 h2 { font-size: 24px; }
+
+            .section3 .box { max-width: 100%; }
+
+            .arrow-container { width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="main-page.html" class="header__logo">
+            <img src="images/Logo white.svg" alt="Applause logo">
+        </a>
+
+        <nav aria-label="Main navigation">
+            <ul class="menu-list">
+                <li><a href="main-page.html">Home</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+            </ul>
+        </nav>
+
+        <div class="header__controls">
+            <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">🌙</button>
+            <button class="burger" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div id="description">
+                <h1>Design that moves your metrics</h1>
+                <p>
+                    We design UX/UI that boosts <br> <span id="one">engagement</span>,
+                    <span id="two">completion</span>
+                    and <span id="three">retention</span>
+                    <br> – not just pretty screens.
+                    <br>
+            
+                </p>
+                <a href="#contact">
+                    <button>Book a call</button>
+                </a>
+            </div>
+            <div id="pic">
+                <img src="images/Group 14.png" alt="Design collaboration illustration">
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section2" id="about">
+            <div class="section2__inner">
+                <h2>Who we are</h2>
+                <p>
+                    Applause is a design studio focused on product UX/UI. We help startups and
+                    product teams turn messy flows into interfaces that convert – and ship faster
+                    with a proper design system.
+                </p>
+                <a href="catalog.html" class="explore-btn">Explore catalog</a>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section3" id="features">
+            <article class="box">
+                <img src="images/Database.svg" alt="database icon">
+                <h3>Data-driven design</h3>
+                <p>Every decision is tied to a metric, not a mood.</p>
+            </article>
+
+            <article class="box">
+                <img src="images/Share 2.svg" alt="system icon">
+                <h3>Systems, not screens</h3>
+                <p>We build design systems that scale with your product.</p>
+            </article>
+
+            <article class="box">
+                <img src="images/Check.svg" alt="check icon">
+                <h3>End-to-end</h3>
+                <p>From audit to prototype to production support.</p>
+            </article>
+        </section>
+
+        <!-- Reviews -->
+        <section id="reviews">
+            <h2 class="reviews-title">What clients say</h2>
+
+            <div class="section4">
+                <button class="arrow-container">
+                    <img src="images/Arrow left.svg" alt="arrow left">
+                </button>
+
+                <div class="slider-container">
+                    <div class="avatar">
+                        <img src="images/Smile.svg" alt="John Doe">
+                    </div>
+                    <div class="name">John Doe</div>
+                    <p class="review">
+                        Applause rebuilt our onboarding – conversion jumped 40% in a month.
+                    </p>
+                </div>
+
+                <button class="arrow-container">
+                    <img src="images/Arrow right.svg" alt="arrow right">
+                </button>
+            </div>
+        </section>
+
+        <section class="section5" id="contact">
+            <h2>Let's talk about your product</h2>
+            <p>Book a 30-min call – we'll look at your product and suggest where to start.</p>
+            <a href="mailto:applausestudio@gmail.com" class="btn">Book a call</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__contacts">
+                <h2>Contact us</h2>
+                <ul>
+                    <li>
+                        <img src="images/Map pin.svg" alt="map icon">
+                        <a href="https://maps.google.com/?q=8558+Green+Rd+LA" target="_blank" rel="noopener">
+                            8558 Green Rd., LA
+                        </a>
+                    </li>
+                    <li>
+                        <img src="images/Phone.svg" alt="phone icon">
+                        <a href="tel:+16035550123">+1 (603) 555-0123</a>
+                    </li>
+                   <li>
+                        <img src="images/Mail.svg" alt="mail icon">
+                        <a href="mailto:applausestudio@gmail.com">applausestudio@gmail.com</a>
+                   </li>
+                </ul>
+            </div>
+
+            <div class="footer__logo">
+                <img src="images/Logo white.svg" alt="Applause logo">
+            </div>
+        </div>
+
+        <div class="footer__socials">
+            <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+                <img src="images/Github.svg" alt="github icon">
+            </a>
+            <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram">
+                <img src="images/Tg.svg" alt="tg icon">
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <img src="images/Linkedin.svg" alt="linkedin icon">
+        </div>
+
+    </footer>
+
+    <!-- Theme change script -->
+    <script>
+        const btn = document.getElementById('themeBtn');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+            btn.textContent = '☀️';
+        }
+
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+
+            if (document.body.classList.contains('dark')) {
+                btn.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+
+</body>
+</html>
