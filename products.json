@@ -1,0 +1,293 @@
+[
+  {
+    "id": 1,
+    "name": "UX Audit",
+    "color": "yellow",
+    "description": "Find where users drop off and why.",
+    "price": 800,
+    "category": "services",
+    "image": "images/Search.svg",
+    "packages": {
+      "basic": {
+        "name": "Basic",
+        "duration": "1 week",
+        "add-price": 0
+      },
+      "standard": {
+        "name": "Standard",
+        "duration": "2 weeks",
+        "add-price": 400
+      },
+      "full": {
+        "name": "Full",
+        "duration": "3 weeks",
+        "add-price": 800
+      }
+    },
+    "extras": [
+      { "name": "User interviews", "add-price": 300, "add-duration": "1 week" },
+      { "name": "Analytics review", "add-price": 200, "add-duration": "3 days" },
+      { "name": "Report presentation", "add-price": 150, "add-duration": "2 days" }
+    ]
+  },
+
+  {
+    "id": 2,
+    "name": "UI Design",
+    "color": "violet",
+    "description": "Interfaces that look and work.",
+    "price": 1200,
+    "category": "services",
+    "image": "images/Settings.svg",
+    "packages": {
+      "basic": { "name": "Basic", "duration": "2 weeks", "add-price": 0 },
+      "standard": { "name": "Standard", "duration": "3 weeks", "add-price": 500 },
+      "full": { "name": "Full", "duration": "4 weeks", "add-price": 1000 }
+    },
+    "extras": [
+      { "name": "Animations", "add-price": 400, "add-duration": "1 week" },
+      { "name": "Design system", "add-price": 600, "add-duration": "2 weeks" },
+      { "name": "Dev handoff", "add-price": 200, "add-duration": "3 days" }
+    ]
+  },
+
+  {
+    "id": 3,
+    "name": "Design System",
+    "color": "green",
+    "description": "One system, all screens.",
+    "price": 2000,
+    "category": "services",
+    "image": "images/Grid.svg",
+    "packages": {
+      "basic": { "name": "Basic", "duration": "3 weeks", "add-price": 0 },
+      "standard": { "name": "Standard", "duration": "5 weeks", "add-price": 800 },
+      "full": { "name": "Full", "duration": "8 weeks", "add-price": 1600 }
+    },
+    "extras": [
+      { "name": "Tokens & docs", "add-price": 500, "add-duration": "1 week" },
+      { "name": "Component library", "add-price": 700, "add-duration": "2 weeks" },
+      { "name": "Team training", "add-price": 400, "add-duration": "3 days" }
+    ]
+  },
+
+  {
+    "id": 4,
+    "name": "Landing Page",
+    "color": "violet",
+    "description": "A page that converts.",
+    "price": 900,
+    "category": "services",
+    "image": "images/Image.svg",
+    "packages": {
+      "basic": { "name": "Basic", "duration": "1 week", "add-price": 0 },
+      "standard": { "name": "Standard", "duration": "2 weeks", "add-price": 400 },
+      "full": { "name": "Full", "duration": "3 weeks", "add-price": 800 }
+    },
+    "extras": [
+      { "name": "Copywriting", "add-price": 300, "add-duration": "3 days" },
+      { "name": "Illustrations", "add-price": 400, "add-duration": "1 week" },
+      { "name": "A/B variants", "add-price": 250, "add-duration": "4 days" }
+    ]
+  },
+
+  {
+    "id": 5,
+    "name": "Mobile App Design",
+    "color": "green",
+    "description": "iOS & Android, done right.",
+    "price": 2500,
+    "category": "services",
+    "image": "images/Smartphone.svg",
+    "packages": {
+      "basic": { "name": "Basic", "duration": "4 weeks", "add-price": 0 },
+      "standard": { "name": "Standard", "duration": "6 weeks", "add-price": 1000 },
+      "full": { "name": "Full", "duration": "9 weeks", "add-price": 2000 }
+    },
+    "extras": [
+      { "name": "Prototype", "add-price": 600, "add-duration": "1 week" },
+      { "name": "Design system", "add-price": 900, "add-duration": "2 weeks" },
+      { "name": "App Store assets", "add-price": 300, "add-duration": "3 days" }
+    ]
+  },
+
+  {
+    "id": 6,
+    "name": "Dashboard / SaaS UI",
+    "color": "violet",
+    "description": "Complex data, clear screens.",
+    "price": 1800,
+    "category": "services",
+    "image": "images/Bar chart.svg",
+    "packages": {
+      "basic": { "name": "Basic", "duration": "3 weeks", "add-price": 0 },
+      "standard": { "name": "Standard", "duration": "5 weeks", "add-price": 700 },
+      "full": { "name": "Full", "duration": "8 weeks", "add-price": 1400 }
+    },
+    "extras": [
+      { "name": "Data viz", "add-price": 500, "add-duration": "1 week" },
+      { "name": "Dark theme", "add-price": 400, "add-duration": "1 week" },
+      { "name": "Admin flows", "add-price": 600, "add-duration": "2 weeks" }
+    ]
+  },
+
+  {
+    "id": 7,
+    "name": "Branding",
+    "color": "yellow",
+    "description": "Logo, identity, guidelines.",
+    "price": 1000,
+    "category": "services",
+    "image": "images/Star.svg",
+    "packages": {
+      "basic": { "name": "Basic", "duration": "2 weeks", "add-price": 0 },
+      "standard": { "name": "Standard", "duration": "3 weeks", "add-price": 500 },
+      "full": { "name": "Full", "duration": "5 weeks", "add-price": 1000 }
+    },
+    "extras": [
+      { "name": "Brand book", "add-price": 400, "add-duration": "1 week" },
+      { "name": "Social kit", "add-price": 300, "add-duration": "4 days" },
+      { "name": "Motion logo", "add-price": 500, "add-duration": "1 week" }
+    ]
+  },
+
+  {
+    "id": 8,
+    "name": "Design Review",
+    "color": "violet",
+    "description": "A fresh pair of eyes on your product.",
+    "price": 500,
+    "category": "services",
+    "image": "images/Eye.svg",
+    "packages": {
+      "basic": { "name": "Basic", "duration": "3 days", "add-price": 0 },
+      "standard": { "name": "Standard", "duration": "1 week", "add-price": 300 },
+      "full": { "name": "Full", "duration": "2 weeks", "add-price": 600 }
+    },
+    "extras": [
+      { "name": "Video walkthrough", "add-price": 200, "add-duration": "2 days" },
+      { "name": "Priority list", "add-price": 150, "add-duration": "1 day" },
+      { "name": "Follow-up call", "add-price": 100, "add-duration": "1 day" }
+    ]
+  },
+
+  {
+    "id": 9,
+    "name": "Fintech app",
+    "color": "yellow",
+    "description": "+40% onboarding conversion.",
+    "price": 0,
+    "category": "cases",
+    "image": "images/Bar chart.svg",
+    "packages": {
+      "basic": { "name": "Overview", "duration": "—", "add-price": 0 },
+      "standard": { "name": "Process", "duration": "—", "add-price": 0 },
+      "full": { "name": "Full case", "duration": "—", "add-price": 0 }
+    },
+    "extras": [
+      { "name": "Results", "add-price": 0, "add-duration": "—" },
+      { "name": "Before/After", "add-price": 0, "add-duration": "—" },
+      { "name": "Testimonial", "add-price": 0, "add-duration": "—" }
+    ]
+  },
+
+  {
+    "id": 10,
+    "name": "EdTech platform",
+    "color": "yellow",
+    "description": "+28% course completion.",
+    "price": 0,
+    "category": "cases",
+    "image": "images/Grid.svg",
+    "packages": {
+      "basic": { "name": "Overview", "duration": "—", "add-price": 0 },
+      "standard": { "name": "Process", "duration": "—", "add-price": 0 },
+      "full": { "name": "Full case", "duration": "—", "add-price": 0 }
+    },
+    "extras": [
+      { "name": "Results", "add-price": 0, "add-duration": "—" },
+      { "name": "Before/After", "add-price": 0, "add-duration": "—" },
+      { "name": "Testimonial", "add-price": 0, "add-duration": "—" }
+    ]
+  },
+
+  {
+    "id": 11,
+    "name": "SaaS dashboard",
+    "color": "yellow",
+    "description": "−35% time to first action.",
+    "price": 0,
+    "category": "cases",
+    "image": "images/Bar chart.svg",
+    "packages": {
+      "basic": { "name": "Overview", "duration": "—", "add-price": 0 },
+      "standard": { "name": "Process", "duration": "—", "add-price": 0 },
+      "full": { "name": "Full case", "duration": "—", "add-price": 0 }
+    },
+    "extras": [
+      { "name": "Results", "add-price": 0, "add-duration": "—" },
+      { "name": "Before/After", "add-price": 0, "add-duration": "—" },
+      { "name": "Testimonial", "add-price": 0, "add-duration": "—" }
+    ]
+  },
+
+  {
+    "id": 12,
+    "name": "Starter",
+    "color": "yellow",
+    "description": "Landing + UI kit.",
+    "price": 1500,
+    "category": "packages",
+    "image": "images/Star.svg",
+    "packages": {
+      "basic": { "name": "Landing", "duration": "1 week", "add-price": 0 },
+      "standard": { "name": "Landing + kit", "duration": "2 weeks", "add-price": 500 },
+      "full": { "name": "Full starter", "duration": "3 weeks", "add-price": 1000 }
+    },
+    "extras": [
+      { "name": "Branding", "add-price": 400, "add-duration": "1 week" },
+      { "name": "Animations", "add-price": 300, "add-duration": "4 days" },
+      { "name": "Copywriting", "add-price": 250, "add-duration": "3 days" }
+    ]
+  },
+
+  {
+    "id": 13,
+    "name": "Growth",
+    "color": "yellow",
+    "description": "Audit + redesign + system.",
+    "price": 3500,
+    "category": "packages",
+    "image": "images/Bar chart.svg",
+    "packages": {
+      "basic": { "name": "Audit", "duration": "1 week", "add-price": 0 },
+      "standard": { "name": "Audit + redesign", "duration": "3 weeks", "add-price": 1000 },
+      "full": { "name": "Full growth", "duration": "5 weeks", "add-price": 2000 }
+    },
+    "extras": [
+      { "name": "Design system", "add-price": 700, "add-duration": "2 weeks" },
+      { "name": "Analytics", "add-price": 400, "add-duration": "1 week" },
+      { "name": "Team training", "add-price": 500, "add-duration": "3 days" }
+    ]
+  },
+
+  {
+    "id": 14,
+    "name": "Scale",
+    "color": "yellow",
+    "description": "Full cycle + support.",
+    "price": 6000,
+    "category": "packages",
+    "image": "images/Star.svg",
+    "packages": {
+      "basic": { "name": "Full cycle", "duration": "6 weeks", "add-price": 0 },
+      "standard": { "name": "Full + support", "duration": "8 weeks", "add-price": 1500 },
+      "full": { "name": "Full + retainer", "duration": "12 weeks", "add-price": 3000 }
+    },
+    "extras": [
+      { "name": "Retainer", "add-price": 1000, "add-duration": "1 month" },
+      { "name": "Priority support", "add-price": 600, "add-duration": "1 month" },
+      { "name": "Quarterly review", "add-price": 400, "add-duration": "2 days" }
+    ]
+  }
+]
