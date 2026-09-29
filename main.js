@@ -54,6 +54,29 @@
     }
     
 // Load data for cards
+
+let visibleCount = 8; //how many cards are shown initially
+
+const showMoreBtn = document.querySelector('.catalog__more .btn');
+
+function updateShowMoreBtn(items) {
+    if (!showMoreBtn) return;
+
+    if (items.length <= visibleCount) {
+        showMoreBtn.style.display = 'none';
+    } else {
+        showMoreBtn.style.display = 'inline-block';
+    }
+}
+
+if (showMoreBtn) {
+    showMoreBtn.addEventListener('click', () => {
+        visibleCount += 8; //show more 8 cards
+        renderCards(allProducts);
+    });
+}
+
+
 const catalog = document.querySelector('.catalog');
 let allProducts = [];
 
@@ -70,7 +93,9 @@ if (catalog) {
 function renderCards(items) {
     catalog.innerHTML = '';
 
-    for (const item of items) {
+    const visible = items.slice(0, visibleCount);
+
+    for (const item of visible) {
         const card = document.createElement('article');
         card.className = 'card';
         card.innerHTML = `
@@ -82,6 +107,9 @@ function renderCards(items) {
             </div>`;
         catalog.appendChild(card);
     }
+
+    updateShowMoreBtn(items);
+
 }
 
 // Category buttons
@@ -95,6 +123,8 @@ for (const btn of categoryBtns) {
         btn.classList.add('is-active');
 
         const category = btn.dataset.category;
+
+        visibleCount = 8;
 
         if (category === 'all') {
             renderCards(allProducts);
