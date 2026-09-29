@@ -52,35 +52,59 @@
 
         sliderUpdate();
     }
-//Load data for cards
-
+    
+// Load data for cards
 const catalog = document.querySelector('.catalog');
+let allProducts = [];
 
-    if (catalog) {
-        fetch('products.json')
-            .then(response => response.json())
-            .then(data => {
-                
-
-                for (const item of data) {
-
-                    console.log(item.name, item.color);
-                    const card = document.createElement('article');
-
-                    card.className = "card";
-                    card.innerHTML = `
-                    <img class="card__image card-${item.color}" src="${item.image}">
-                    <div class="card__body">
-                    <h3 class="card__title">${item.name}</h3>
-                    <p class="card__text">${item.description}</p>
-                    <span class="card__meta">from $${item.price} · 1 week</span>
-                    </div>`;
-                catalog.appendChild(card); 
-            }
+if (catalog) {
+    fetch('products.json')
+        .then(response => response.json())
+        .then(data => {
+            allProducts = data;
+            renderCards(allProducts);
         })
-            .catch(error => console.error('Ошибка:', error));
-    }
+        .catch(error => console.error('Ошибка:', error));
+}
 
+function renderCards(items) {
+    catalog.innerHTML = '';
+
+    for (const item of items) {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+            <img class="card__image card-${item.color}" src="${item.image}" alt="${item.name}">
+            <div class="card__body">
+                <h3 class="card__title">${item.name}</h3>
+                <p class="card__text">${item.description}</p>
+                <span class="card__meta">from $${item.price} · 1 week</span>
+            </div>`;
+        catalog.appendChild(card);
+    }
+}
+
+// Category buttons
+const categoryBtns = document.querySelectorAll('.category-btn');
+
+for (const btn of categoryBtns) {
+    btn.addEventListener('click', () => {
+        for (const b of categoryBtns) {
+            b.classList.remove('is-active');
+        }
+        btn.classList.add('is-active');
+
+        const category = btn.dataset.category;
+
+        if (category === 'all') {
+            renderCards(allProducts);
+        } else {
+            const filtered = allProducts.filter(item => item.category === category);
+            renderCards(filtered);
+        }
+    });
+}  
+            
 // Theme change script
     
         const btn = document.getElementById('themeBtn');
